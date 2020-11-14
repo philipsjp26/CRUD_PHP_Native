@@ -41,6 +41,34 @@ class Database{
             return $data;
         }
     }
-}
+    function get_by_id($id)
+    {
+        $hasil=[];
+        $ex = mysqli_query($this->koneksi, "SELECT * FROM tb_data where id = '$id'");
+        while($row = mysqli_fetch_array($ex)){
+            $hasil=$row;
+        }
+        return $hasil;
+    }
+    function update($id,$nim,$nama_lengkap,$kota_asal,$tanggal_lahir,$nama_ortu,$alamat_ortu,$kodepos,$nomor_telepon,$status)
+    {
+        $ex=mysqli_query($this->koneksi,"UPDATE tb_data set
+        nim='$nim',
+        nama_lengkap = '$nama_lengkap',
+        kota_asal = '$kota_asal',
+        nama_ortu= '$nama_ortu',
+        alamat_ortu = '$alamat_ortu',
+        kodepos = '$kodepos',
+        nomor_telepon = '$nomor_telepon',
+        status = '$status' WHERE id='$id'
+        ");
+        if(!$ex)
+        {
+            $msg= 'Cannot Update Data';
+            return $msg;
+        }
 
+    }
+
+}
 ?>

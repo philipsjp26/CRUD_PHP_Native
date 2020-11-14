@@ -44,7 +44,7 @@ $get_data = $db->view_data();
                     <td><?php echo $row['nomor_telepon']; ?></td>
                     <td><?php echo $row['status']; ?></td>
                     <td>
-                        <a href="#">Update</a>
+                        <a href="edit.php?id=<?php echo $row['id']; ?>">Update</a>
                         <a href="proses.php?action=delete&id=<?php echo $row['id'];?>">Delete</a>
                     </td>
                 </tr>
